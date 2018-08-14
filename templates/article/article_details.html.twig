@@ -1,0 +1,22 @@
+<div class="card" >
+    <div class="card-body" id="heading{{ article.id }}">
+        <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#{{ article.id }}" aria-expanded="false" aria-controls="collapseOne">
+            <h2  class="card-title mb-0">{{ article.title }}</h2>
+        </button>
+        <h6 class="font-italic">{{ article.publicationDate|date("F jS \\a\\t g:ia\\, Y") }}</h6>
+        <hr>
+        <div id="{{ article.id  }}" class="collapse" aria-labelledby="heading{{ article.id }}" data-parent="#accordion">
+            <div class="card-text">
+                {{ article.description }}
+            </div>
+        </div>
+        {% if is_granted('ROLE_ADMIN') %}
+            <a href="{{ path('deleteArticle',{'id': article.id }) }}" class="btn btn-danger " >Delete</a>
+        {% endif %}
+    </div>
+
+
+
+
+
+</div>

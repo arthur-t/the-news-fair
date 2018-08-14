@@ -1,0 +1,35 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+    {{ include('navigation/navigation_bar_login.html.twig')}}
+
+    <div class="page-centered">
+        <div class="jumbotron p-5 bg-lightblue">
+            <div class=" row ">
+                <div class="col-xs-12">
+
+                    <h2>Complete this form in order to create your account</h2>
+                    {% if error %}
+                        <div class="alert alert-danger">
+                            {{ error }}
+                        </div>
+                    {% endif %}
+                    {{ form_start(form) }}
+                    {{ form_row(form.fullName) }}
+                    {{ form_row(form.username) }}
+                    {{ form_row(form.email) }}
+                    {{ form_row(form.plainPassword.first) }}
+                    {{ form_row(form.plainPassword.second) }}
+                    <input type="hidden" name="_target_path" value="/index" />
+                    <br>
+                    <button type="submit" class="btn btn-block btn-primary" >Register<span class="fa fa-lock"></span></button>
+                    {{ form_end(form) }}
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+
+
+
+{% endblock %}

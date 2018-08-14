@@ -1,0 +1,37 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+
+    {{ include('navigation/navigation_bar_index.html.twig')}}
+
+    {{ parent() }}
+    <br/>
+
+
+    <div class="container text-center  shadow-sm  display-1 bg-cream">
+        The news fair
+    </div>
+    <br/>
+    {% block content %}
+        <div class="container">
+            {% if page != -1 %}
+                {{ include('navigation/page_selector.html.twig',{'page': page, 'maxPage': maxPage}) }}
+            {% endif %}
+                {% if is_granted('ROLE_ADMIN') %}
+                    <a class="btn  btn-info" href="{{ path('addArticle') }}">Create an article</a>
+                    <br>
+                    <br>
+                {% endif %}
+
+                {% for article in articles %}
+
+                    {{ include('article/article_details.html.twig', { 'article': article }) }}
+                    <br>
+                {% endfor %}
+            {% if page != -1 %}
+                {{ include('navigation/page_selector.html.twig',{'page': page, 'maxPage': maxPage}) }}
+            {% endif %}
+        </div>
+
+
+    {% endblock %}
+{%  endblock %}

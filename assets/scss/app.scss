@@ -1,0 +1,20 @@
+@import "../../vendor/twbs/bootstrap/scss/bootstrap";
+
+.page-centered{
+  display: grid;
+  height: 80vh;
+  margin: 0;
+  place-items: center center;
+}
+
+.bg-lightblue{
+  background-color: #a3c9cc;
+}
+
+.bg-cream{
+  background-color: #dcf6f9;
+}
+
+.bg-darker{
+  background-color: rgba(5, 9, 17, 0.89);
+}

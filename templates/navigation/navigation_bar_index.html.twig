@@ -1,0 +1,8 @@
+{% extends 'navigation/navigation_bar.html.twig' %}
+{% block navbody %}
+    {{ parent() }}
+    {{ render(controller(
+        'App\\Controller\\HomeController:searchBarAction'
+    )) }}
+
+{% endblock %}
